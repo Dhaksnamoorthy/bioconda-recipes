@@ -44,10 +44,16 @@ test:
     - pip
 
 about:
-  summary: Analysis of Tandem Repeats Variations
-  license: MIT
+  home: "https://github.com/SowpatiLab/ATaRVa"
+  summary: "Analysis of Tandem Repeats Variations"
+  license: "MIT"
   license_file: LICENSE
+  dev_url: "https://github.com/SowpatiLab/ATaRVa"
+  doc_url: "https://github.com/SowpatiLab/ATaRVa"
 
 extra:
   recipe-maintainers:
     - Abishek Kumar
+  identifiers:
+    - biotools:atarva
+    - https://doi.org/10.1101/2025.05.13.653434
