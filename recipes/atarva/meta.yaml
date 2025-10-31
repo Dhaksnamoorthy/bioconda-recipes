@@ -1,0 +1,53 @@
+{% set name = "ATaRVa" %}
+{% set version = "0.3.1" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/atarva-{{ version }}.tar.gz
+  sha256: de9a45a4362680416cdf78a5fa23788d578cdd1a4819fea31d14cceaee3bf3af
+
+build:
+  entry_points:
+    - atarva = ATARVA.core:main
+  noarch: python
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 0
+
+requirements:
+  host:
+    - python >=3.9
+    - setuptools
+    - wheel
+    - pip
+  run:
+    - python >=3.9
+    - numpy >=1.26.4
+    - pyabpoa >=1.5.3
+    - pysam >=0.22.1
+    - scikit-learn >=1.4.1
+    - scipy >=1.12.0
+    - threadpoolctl >=3.3.0
+    - tqdm >=4.66.1
+    - bitarray >=3.0.0
+    - regex >=2025.9.1
+
+test:
+  imports:
+    - ATARVA
+  commands:
+    - pip check
+    - atarva --help
+  requires:
+    - pip
+
+about:
+  summary: Analysis of Tandem Repeats Variations
+  license: MIT
+  license_file: LICENSE
+
+extra:
+  recipe-maintainers:
+    - Abishek Kumar
